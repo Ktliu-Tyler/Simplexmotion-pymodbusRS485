@@ -1,0 +1,4 @@
+# Runtime dependencies for the Simplex Motion RS485 Python test scripts.
+# Python 3.10+ is required by the current code style; Python 3.11 is tested.
+pymodbus==3.8.6
+pyserial==3.5
