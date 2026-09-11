@@ -1,3 +1,47 @@
+# SimplexMotion Motor Control over RS485
+
+A Python toolkit and experiment record for communicating with SimplexMotion motors through Modbus RTU over RS485. It brings low-level register access together with interactive tools for position control, multiple motors, and device-address management.
+
+## Purpose
+
+The project makes motor behavior easier to inspect and control from a computer. It translates the device's register-oriented interface into reusable Python functions and focused command-line tools, while preserving wiring notes and observations from physical tests.
+
+## Main capabilities
+
+- Read and write motor registers through a serial Modbus connection.
+- Select operating modes and work with motor status and control values.
+- Experiment with position control and position-reference handling.
+- Control multiple addressed motors on an RS485 bus.
+- Change, store, and verify a motor's slave address.
+- Access common operations through an interactive menu.
+
+## Repository guide
+
+The implementation files are inside the nested [example project directory](SimplexMotion_Motor_Example_Using_PyModbus-master/SimplexMotion_Motor_Example_Using_PyModbus-master).
+
+| File or directory | Responsibility |
+| --- | --- |
+| `simplexMotor.py` | Motor communication and control abstraction |
+| `reg_map.py` | Register definitions |
+| `motor_control_menu.py` | Interactive control interface |
+| `multi_motor_control.py` | Multi-motor workflow |
+| `position_control_com3.py`, `position_reference.py` | Position-control and reference experiments |
+| `change_slave_id.py` | Address-change workflow |
+| [docs](docs) | Wiring, test records, operating modes, and detailed tool guides |
+
+## Technical focus and context
+
+The code uses PyModbus and serial communication, with explicit handling of register addresses, units, modes, and persistent settings. The record is particularly useful for understanding how application-level commands map onto a motor controller's protocol.
+
+These tools issue real motor commands; their behavior depends on the connected device, wiring, configured address, and operating mode. Detailed controls, parameter ranges, and the original test notes are preserved below rather than duplicated in this overview.
+
+## Original project notes
+
+The original documentation is retained below as a personal development record, including its original language, credits, illustrations, and historical instructions. Dates, paths, and environment details describe the original work.
+
+<details>
+<summary>Read the original documentation</summary>
+
 # Simplex Motion RS485 Python Test Notes
 
 This project is for testing Simplex Motion motors through the SC/SM-Comboard RS485 interface using Python and Modbus RTU.
@@ -515,3 +559,5 @@ This writes manual register `#50 Address` using code address `49`, stores settin
 | `--timeout` | no | seconds, default `1.0` | Serial request timeout |
 | `--yes` | no | flag | Skip the interactive `CHANGE` confirmation |
 | `--debug` | no | flag | Enable verbose motor logs |
+
+</details>
